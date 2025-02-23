@@ -78,42 +78,150 @@ This challenge is intended to be completed within ~3 hours, so keep solutions mi
 
 ---
 
-## Deliverables
+## Prerequisites
+Before you begin, ensure you have the following installed:
 
-1. **Fork the Public Repository**: **Fork** this repo into your own GitHub account.
-2. **Implement Your Solution** in the forked repository. Make sure you're README file has:
-   - Steps to set up the database (migrations, environment variables).
-   - How to run the backend.
-   - How to run the frontend.
-   - Any relevant notes on testing.
-   - Salary Expectations per month (Mandatory)
-3. **Short Video Demo**: Provide a link (in a `.md` file in your forked repo) to a brief screen recording showing:
-   - Registering a user
-   - Logging in
-   - Creating, updating, and deleting tasks
-4. **Deadline**: Submissions are due **Sunday, Feb 23th 11:59 pm PST**.
+- **Node.js** (Latest LTS version recommended)
+- **npm** or **yarn** (Package manager)
+- **PostgreSQL** (Database)
+- **Git** (For version control)
 
-> **Note**: Please keep your solution minimal. The entire project is intended to be completed in around 3 hours. Focus on core features (registration, login, tasks CRUD) rather than polished UI or extra features.
+## Setup Instructions
+
+### 1. Clone the Repository
+```sh
+git clone https://github.com/harshil1111999/lumaa-spring-2025-swe.git
+cd lumaa-spring-2025-swe
+```
 
 ---
+## Database Setup
 
-## Evaluation Criteria
+### 2. Create the Database
+Ensure PostgreSQL is running:
+When you will start the server it will automatically create the db and table if not exist
 
-1. **Functionality**  
-   - Does registration and login work correctly (with password hashing)?
-   - Are tasks protected by authentication?
-   - Does the tasks CRUD flow work end-to-end?
+### 3. Set Up Environment Variables
+Create a `.env` file in the **backend** directory and add:
+```env
+DATABASE_URL=postgresql://<username>:<password>@localhost:5432/<dbname>
+DB_USER=<username>
+DB_PASSWORD=<password>
+DB_HOST=localhost
+DB_PORT=5432
+JWT_SECRET=your_jwt_secret_key
+PORT=3001
+NODE_ENV=development
+```
 
-2. **Code Quality**  
-   - Is the code structured logically and typed in TypeScript?
-   - Are variable/function names descriptive?
+---
+## Backend Setup
 
-3. **Clarity**  
-   - Is the `README.md` (in your fork) clear and detailed about setup steps?
-   - Easy to run and test?
+### 4. Navigate to the Backend Directory
+```sh
+cd backend
+```
 
-4. **Maintainability**  
-   - Organized logic (controllers/services, etc.)
-   - Minimal hard-coded values
+### 5. Install Dependencies
+```sh
+npm install
+```
 
-Good luck, and we look forward to your submission!
+### 6. Start the Backend Server
+For development mode (with hot reloading):
+```sh
+npm run dev
+```
+For production mode:
+```sh
+npm start
+```
+The backend will run on **http://localhost:3001** by default.
+
+---
+## Frontend Setup
+
+### 7. Navigate to the Frontend Directory
+```sh
+cd ../frontend
+```
+
+### 8. Install Dependencies
+```sh
+npm install
+```
+
+### 9. Configure Environment Variables
+Create a `.env` file in the **frontend** directory and add:
+```env
+REACT_APP_API_URL=http://localhost:<port>
+```
+
+### 10. Start the Frontend Server
+For development mode:
+```sh
+npm start
+```
+The frontend will run on **http://localhost:3000** by default.
+
+---
+## Running the Project
+After starting both frontend and backend servers, open your browser and navigate to:
+```
+http://localhost:3000
+```
+Ensure both frontend and backend are properly connected.
+
+---
+## Testing
+Run tests using Jest (if configured):
+```sh
+npm test
+```
+
+---
+## Salary Expectations (Mandatory)
+My salary expectation is 60000 USD per annum!
+
+---
+## Short Video Demo
+https://drive.google.com/file/d/1N5kueAB6OZDN-V_IuFaU51sE-JrEhpV4/view?usp=drive_link
+
+---
+## Project Structure
+```
+task-management/
+│── backend/        # Node.js Backend
+│   ├── src/
+│   |   ├── config/
+│   |   ├── middleware/
+│   |   ├── routes/
+│   |   ├── types/
+|   |   ├── utils/
+│   ├── index.ts
+|   ├── .env
+|   ├── package.json
+│── frontend/       # React TypeScript Frontend
+│   ├── src/
+│   |   ├── components/
+│   |   ├── context/
+│   |   ├── hooks/
+│   |   ├── types/
+│   |   ├── utils/
+│   ├── App.tsx
+│── README.md       # Documentation
+```
+
+---
+## Additional Commands
+### Linting & Formatting
+Run ESLint and Prettier (if configured):
+```sh
+npm run lint
+npm run format
+```
+
+### Build Frontend for Production
+```sh
+npm run build
+```
